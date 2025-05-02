@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimeStore</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="menu-container">
+            <button class="menu-btn" aria-label="Abrir menu">
+                <span class="menu-icon">☰</span>
+            </button>
+            
+            <!-- Caixa de opções do menu -->
+            <div class="menu-box">
+                <a href="#">Camisetas</a>
+                <a href="#">Calças</a>
+                <a href="#">Casaco</a>
+                <a href="#">Acessórios</a>
+            </div>
+        </div>
+    
+        <div class="search-container">
+            <img src="../imagens/2ecf23ec-a679-46e2-93e8-17ba6a8783dc 1.png" alt="Buscar" class="search-icon">
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar produtos...">
+            </div>
+        </div>
+        
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <script>
+            document.addEventListener('DOMContentLoaded', function() {
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                header.classList.remove('hidden');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && !header.classList.contains('hidden')) {
+                // Rolando para baixo - esconde o menu
+                header.classList.add('hidden');
+            } else if (currentScroll < lastScroll && header.classList.contains('hidden')) {
+                // Rolando para cima - mostra o menu
+                header.classList.remove('hidden');
+            }
+            
+            lastScroll = currentScroll;
+        });
+    });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.menu-btn');
+            const menuContainer = document.querySelector('.menu-container');
+            
+            if(menuBtn && menuContainer) {
+                menuBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    menuContainer.classList.toggle('active');
+                });
+                
+                // Fechar ao clicar fora
+                document.addEventListener('click', function(e) {
+                    if(!menuContainer.contains(e.target)) {
+                        menuContainer.classList.remove('active');
+                    }
+                });
+            }
+        });
+        </script>
+
+
+
+
+<!-- Seção da imagem hero com botão -->
+<section class="hero-section">
+    <div class="hero-container">
+        <img src="../imagens/Group 1000008408.png" alt="Anime Universe" class="hero-image">
+    </div>
+</section>
+
+<section class="highlights">
+    <h2>Destaques</h2>
+    <div class="characters">
+        <div class="character">
+            <img src="https://sm.ign.com/t/ign_br/tv/o/one-piece-/one-piece-2_1xby.600.jpg" alt="One Piece">
+            <p>One Piece</p>
+        </div>
+        <div class="character">
+            <img src="https://br.web.img3.acsta.net/c_310_420/pictures/16/04/11/16/56/089875.jpg" alt="Naruto">
+            <p>Naruto</p>
+        </div>
+        <div class="character">
+            <img src="https://i.redd.it/0clo1tmot7rd1.png" alt="Jujutsu Kaisen">
+            <p>Jujutsu Kaisen</p>
+        </div>
+        <div class="character">
+            <img src="https://i.pinimg.com/736x/9e/0b/72/9e0b725370b95b85cb3ad4021b009e49.jpg" alt="Demon Slayer">
+            <p>Demon Slayer</p>
+        </div>
+        <div class="character">
+            <img src="https://br.web.img2.acsta.net/pictures/22/11/22/14/02/3642167.jpg" alt="Dragon Ball">
+            <p>Dragon Ball</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="categories-section">
+    <div class="container">
+        <h2 class="section-heading">CATEGORIAS</h2>
+        <div class="categories-grid">
+            <!-- Categoria Camisetas -->
+            <div class="category-card">
+                <div class="category-content">
+                    <h3 class="category-title">CAMISETAS</h3>
+                    <div class="category-hover">
+                        <span>Ver Coleção</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <!-- Substitua pelo caminho da sua imagem -->
+                <img class="category-image" src="../imagens/camiseta.avif" alt="Camisetas">
+            </div>
+            
+            <!-- Categoria Cortavento -->
+            <div class="category-card">
+                <div class="category-content">
+                    <h3 class="category-title">CALÇAS</h3>
+                    <div class="category-hover">
+                        <span>Ver Coleção</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <!-- Substitua pelo caminho da sua imagem -->
+                <img class="category-image" src="../imagens/calças.jpg" alt="Corta-vento">
+            </div>
+            
+            <!-- Categoria Camisa Social -->
+            <div class="category-card">
+                <div class="category-content">
+                    <h3 class="category-title">CASACO</h3>
+                    <div class="category-hover">
+                        <span>Ver Coleção</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <!-- Substitua pelo caminho da sua imagem -->
+                <img class="category-image" src="../imagens/casaco.webp" alt="Camisa Social">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!--Produtos-->
+<section class="product-gallery">
+    <h2 style="text-align: center;">Produtos</h2>
+    <div class="products">
+        <!-- Produto 1 -->
+        <div class="product">
+            <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98q-ll5fi1yais701f" alt="Camiseta">
+            <p>Camiseta - One Piece</p>
+            <span class="price">R$ 89,90</span>
+            <div class="product-buttons">
+                <button class="buy-button pulse">Comprar Agora</button>
+                <button class="cart-button">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-text">Add ao Carrinho</span>
+                    <span class="added-confirm">✓ Adicionado!</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Produto 2 -->
+        <div class="product">
+            <img src="https://images.tcdn.com.br/img/img_prod/830600/camiseta_demon_slayer_tanjiro_1693_1_5cfdb4490f5f446066452e1d7fef3b3e.jpg" alt="Camiseta">
+            <p>Camiseta - Demon Slayer</p>
+            <span class="price">R$ 69,90</span>
+            <div class="product-buttons">
+                <button class="buy-button pulse">Comprar Agora</button>
+                <button class="cart-button">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-text">Add ao Carrinho</span>
+                    <span class="added-confirm">✓ Adicionado!</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Produto 3 -->
+        <div class="product">
+            <img src="https://down-br.img.susercontent.com/file/73e227751760fd98526b24d7c3b9bdec" alt="Camiseta">
+            <p>Camiseta - Jujutsu Kaisen</p>
+            <span class="price">R$ 119,90</span>
+            <div class="product-buttons">
+                <button class="buy-button pulse">Comprar Agora</button>
+                <button class="cart-button">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-text">Add ao Carrinho</span>
+                    <span class="added-confirm">✓ Adicionado!</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Produto 4 -->
+        <div class="product">
+            <img src="../imagens/solo.jpg" alt="Camiseta">
+            <p>Camiseta - solo leveling</p>
+            <span class="price">R$ 99,90</span>
+            <div class="product-buttons">
+                <button class="buy-button pulse">Comprar Agora</button>
+                <button class="cart-button">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-text">Add ao Carrinho</span>
+                    <span class="added-confirm">✓ Adicionado!</span>
+                </button>
+            </div>
+        </div>
+        
+
+    </div>
+</section>
+
+
+<script>
+    document.querySelectorAll('.add-cart').forEach(button => {
+        button.addEventListener('click', function() {
+            this.classList.add('clicked');
+            setTimeout(() => {
+                this.classList.remove('clicked');
+            }, 2000);
+        });
+    });
+    </script>
+
+
+
+
+<section class="stamp-selection">
+    <div class="container">
+        <h2 class="section-title">ESCOLHA SUA ESTAMPA!</h2>
+        <p class="section-subtitle">Selecione nossas estampas ou envie a sua própria</p>
+        
+        <div class="stamp-grid">
+            <!-- Estampa 1 -->
+            <div class="stamp-card" data-stamp-id="1">
+                <div class="stamp-image-container">
+                    <img src="../imagens/dandadan.jpg" alt="Estampa 1" class="stamp-image">
+                    <div class="selection-badge">1</div>
+                </div>
+                <div class="stamp-info">
+                    <h3 class="stamp-name">Estampa Anime</h3>
+                    <p class="stamp-code">Código: ANI-001</p>
+                </div>
+            </div>
+            
+            <!-- Estampa 2 -->
+            <div class="stamp-card" data-stamp-id="2">
+                <div class="stamp-image-container">
+                    <img src="../imagens/gojo.webp" alt="Estampa 2" class="stamp-image">
+                    <div class="selection-badge">2</div>
+                </div>
+                <div class="stamp-info">
+                    <h3 class="stamp-name">Estampa Geek</h3>
+                    <p class="stamp-code">Código: GEEK-002</p>
+                </div>
+            </div>
+            
+            <!-- Estampa 3 (nova) -->
+            <div class="stamp-card" data-stamp-id="3">
+                <div class="stamp-image-container">
+                    <img src="../imagens/isagi.webp" alt="Estampa 3" class="stamp-image">
+                    <div class="selection-badge">3</div>
+                </div>
+                <div class="stamp-info">
+                    <h3 class="stamp-name">Estampa Exclusiva</h3>
+                    <p class="stamp-code">Código: EXC-003</p>
+                </div>
+            </div>
+            
+            <!-- Upload de imagem personalizada -->
+            <div class="stamp-card upload-card" id="upload-stamp">
+                <div class="stamp-image-container">
+                    <div class="upload-placeholder">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 13C19.34 13 19.67 13.04 20 13.09V8H4V19H13.29C13.11 18.37 13 17.7 13 17C13 15.77 13.37 14.63 13.99 13.67L14 13H19ZM19 11H14V6H19V11Z" fill="#3b82f6"/>
+                            <path d="M14 13H19L13.99 13.67C13.37 14.63 13 15.77 13 17C13 19.21 14.79 21 17 21C19.21 21 21 19.21 21 17C21 14.79 19.21 13 17 13C15.74 13 14.63 13.5 13.86 14.29L14 13ZM17 19C15.9 19 15 18.1 15 17C15 15.9 15.9 15 17 15C18.1 15 19 15.9 19 17C19 18.1 18.1 19 17 19Z" fill="#3b82f6"/>
+                            <path d="M4 6H14V11H4V6Z" fill="#3b82f6"/>
+                        </svg>
+                        <p>Envie sua própria estampa</p>
+                    </div>
+                    <img id="uploaded-image" class="stamp-image hidden" alt="Sua estampa">
+                    <div class="selection-badge">+</div>
+                    <input type="file" id="file-input" accept="image/*" class="hidden">
+                </div>
+                <div class="stamp-info">
+                    <h3 class="stamp-name">Personalizada</h3>
+                    <p class="stamp-code">Sua criação</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="selection-footer">
+            <div class="counter">
+                <span class="selected-count">0</span> estampas selecionadas
+            </div>
+            <button class="submit-button" disabled>
+                <span>Enviar Seleção</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</section>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const stampCards = document.querySelectorAll('.stamp-card:not(.upload-card)');
+        const uploadCard = document.getElementById('upload-stamp');
+        const fileInput = document.getElementById('file-input');
+        const uploadedImage = document.getElementById('uploaded-image');
+        const uploadPlaceholder = document.querySelector('.upload-placeholder');
+        const selectedCount = document.querySelector('.selected-count');
+        const submitButton = document.querySelector('.submit-button');
+        let selectedStamps = [];
+        let hasCustomImage = false;
+        
+        // Seleção de estampas normais
+        stampCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const stampId = this.getAttribute('data-stamp-id');
+                
+                if (this.classList.contains('selected')) {
+                    // Desmarcar
+                    this.classList.remove('selected');
+                    selectedStamps = selectedStamps.filter(id => id !== stampId);
+                } else {
+                    // Marcar
+                    this.classList.add('selected');
+                    selectedStamps.push(stampId);
+                }
+                
+                updateSelection();
+            });
+        });
+        
+        // Upload de imagem personalizada
+        uploadCard.addEventListener('click', function(e) {
+            // Evita abrir o seletor de arquivo se já tiver uma imagem
+            if (!hasCustomImage) {
+                fileInput.click();
+            }
+        });
+        
+        fileInput.addEventListener('change', function(e) {
+            if (this.files && this.files[0]) {
+                const reader = new FileReader();
+                
+                reader.onload = function(event) {
+                    uploadedImage.src = event.target.result;
+                    uploadedImage.classList.remove('hidden');
+                    uploadPlaceholder.classList.add('hidden');
+                    uploadCard.classList.add('selected');
+                    hasCustomImage = true;
+                    updateSelection();
+                }
+                
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+        
+        function updateSelection() {
+            const totalSelected = selectedStamps.length + (hasCustomImage ? 1 : 0);
+            selectedCount.textContent = totalSelected;
+            submitButton.disabled = totalSelected === 0;
+        }
+        
+        submitButton.addEventListener('click', function() {
+            if (!this.disabled) {
+                let message = `Você selecionou ${selectedStamps.length} estampa(s)`;
+                
+                if (selectedStamps.length > 0) {
+                    message += `: ${selectedStamps.join(', ')}`;
+                }
+                
+                if (hasCustomImage) {
+                    message += selectedStamps.length > 0 ? " e uma imagem personalizada" : "Uma imagem personalizada";
+                }
+                
+                alert(message);
+                // Aqui você pode adicionar a lógica para enviar os dados
+            }
+        });
+    });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="customer-reviews-modern">
+    <div class="reviews-container">
+        <h2 class="section-title">Avaliações de Clientes</h2>
+        
+        <!-- Avaliação Existente -->
+        <div class="review-card">
+            <div class="review-header">
+                <div class="rating-stars">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <span class="verified-badge">✓ Verificado</span>
+            </div>
+            <blockquote class="review-text">"Ótimos produtos! Recomendo!"</blockquote>
+            <div class="review-author">Cliente Satisfeito</div>
+        </div>
+        
+        <!-- Formulário para Nova Avaliação -->
+        <div class="review-form-container">
+            <h3 class="form-title">Deixe sua avaliação</h3>
+            <form class="review-form">
+                <div class="form-group">
+                    <label for="user-name">Seu nome</label>
+                    <input type="text" id="user-name" placeholder="Como gostaria de ser chamado">
+                </div>
+                
+                <div class="form-group">
+                    <label>Sua avaliação</label>
+                    <div class="rating-input">
+                        <input type="radio" id="star5" name="rating" value="5">
+                        <label for="star5">★</label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4">★</label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3">★</label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2">★</label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1">★</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="user-review">Seu comentário</label>
+                    <textarea id="user-review" placeholder="Conte sua experiência..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-review">Enviar Avaliação</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+<footer class="dark-footer">
+    <div class="footer-grid">
+        <!-- Coluna Support -->
+        <div class="footer-col">
+            <h3 class="footer-title">Support</h3>
+            <ul class="footer-links">
+                <li><a href="#">Check order status</a></li>
+                <li><a href="#">Shipping & Returns</a></li>
+                <li><a href="#">Help/FAQ</a></li>
+                <li><a href="#">Terms of use</a></li>
+                <li><a href="#">Mountain instruction</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Privacy policy</a></li>
+            </ul>
+        </div>
+        
+        <!-- Coluna About -->
+        <div class="footer-col">
+            <h3 class="footer-title">About</h3>
+            <ul class="footer-links">
+                <li><a href="#">What's a Displace?</a></li>
+                <li><a href="#">Displace Club</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Career</a></li>
+                <li><a href="#">Copyrights</a></li>
+            </ul>
+        </div>
+        
+        <!-- Coluna Earn -->
+        <div class="footer-col">
+            <h3 class="footer-title">Earn With Displats</h3>
+            <ul class="footer-links">
+                <li><a href="#">Sell your art</a></li>
+            </ul>
+        </div>
+        
+        <!-- Coluna Find Us -->
+        <div class="footer-col">
+            <h3 class="footer-title">Find Us</h3>
+            <p class="footer-text">Seal it, perspicisitis under omnis istic natus error</p>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p class="copyright">© all rights reserved Geekozl</p>
+        <div class="legal-links">
+            <a href="#">Privacy Policy</a>
+            <span> / </span>
+            <a href="#">General conditions</a>
+            <span> / </span>
+            <a href="#">Return Policy</a>
+        </div>
+        <p class="signature">made with love by marketing</p>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
